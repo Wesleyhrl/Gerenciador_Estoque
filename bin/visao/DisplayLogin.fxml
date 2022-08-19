@@ -40,7 +40,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="visao.LoginController">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" style="-fx-background-color: linear-gradient(to right, #00c6ff, #0072ff);" VBox.vgrow="ALWAYS">
          <children>
@@ -61,7 +61,7 @@
                </font>
             </Label>
             <PasswordField layoutX="221.0" layoutY="266.0" prefHeight="25.0" prefWidth="198.0" />
-            <Button layoutX="252.0" layoutY="321.0" mnemonicParsing="false"  prefHeight="35.0" prefWidth="136.0" style="-fx-background-color: rgba(10,23,55,.4); -fx-text-fill: white;" text="Login" />
+            <Button layoutX="252.0" layoutY="321.0" mnemonicParsing="false"  prefHeight="35.0" prefWidth="136.0" style="-fx-background-color: rgba(10,23,55,.4); -fx-text-fill: white;" text="Login" onAction="#fazerLogin" />
          </children>
     </AnchorPane>
   </children>
