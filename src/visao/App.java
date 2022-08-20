@@ -8,21 +8,59 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class App extends Application {
-
+    private static Stage stage;
+    private static Stage secondaryStage = new Stage();
+    private static Scene main;
+    private static Scene login;
+    private static Scene newProduto;
+    private static Scene editProduto;
     @Override
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader fxml = new FXMLLoader(getClass().getResource("DisplayLogin.fxml"));
-        Parent root = fxml.load();
-        Scene cenaLogin = new Scene(root);
-        primaryStage.setTitle("Easy Stock");
-       
-        primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/icon.png")));
-        primaryStage.setScene(cenaLogin);
-        primaryStage.show();
-        //teste
+        stage = primaryStage;
+        
+        //Login
+        FXMLLoader fxmlLogin = new FXMLLoader(getClass().getResource("DisplayLogin.fxml"));
+        Parent rootLogin = fxmlLogin.load();
+        login = new Scene(rootLogin);
+        //Main
+        FXMLLoader fxmlMain = new FXMLLoader(getClass().getResource("Main.fxml"));
+        Parent rootMain = fxmlMain.load();
+        main = new Scene(rootMain);
+        //Novo Produto
+        FXMLLoader fxmlNewProduto = new FXMLLoader(getClass().getResource("NewProduto.fxml"));
+        Parent rootNewProduto = fxmlNewProduto.load();
+        newProduto = new Scene(rootNewProduto);
+        //Editar Produto
+        FXMLLoader fxmlEditProduto = new FXMLLoader(getClass().getResource("Editar.fxml"));
+        Parent rootEditProduto = fxmlEditProduto.load();
+        editProduto = new Scene(rootEditProduto);
+        //Main
+        stage.setTitle("Easy Stock");
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("/icon.png")));
+        stage.setScene(login);
+        stage.show();
+        
+        //Janela Secundaria
+        secondaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/icon.png")));
     }
+    public static void cenaMain(){
+        stage.setScene(main);
+        
+    }
+    public static void cenaNewProduto(){
+        secondaryStage.setTitle("Novo Produto");
+        secondaryStage.setScene(newProduto);
+        secondaryStage.show();
+    }
+    public static void cenaEditProduto(){
+        secondaryStage.setTitle("Editar Produto");
+        secondaryStage.setScene(editProduto);
+        secondaryStage.show();
+    }
+
     public static void main(String[] args) {
         launch(args);
     }
+    
     
 }

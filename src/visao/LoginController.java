@@ -16,8 +16,12 @@ public class LoginController {
 
     @FXML
     void fazerLogin(ActionEvent event) {
-        System.out.println(inputUser.getText());
-        Login login = new Login(inputUser.getText(), inputSenha.getText());
+        Login login = new Login();
+        boolean entrada = login.validarLogin(inputUser.getText(), inputSenha.getText());
+        if(entrada){
+            App.cenaMain();
+        }
+       
     }
 
 }

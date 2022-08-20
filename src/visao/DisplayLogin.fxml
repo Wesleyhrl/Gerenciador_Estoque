@@ -49,7 +49,7 @@
                   <Font name="Lucida Bright Demibold" size="48.0" />
                </font>
             </Label>
-            <TextField layoutX="221.0" layoutY="200.0" prefHeight="25.0" prefWidth="198.0" />
+            <TextField layoutX="221.0" layoutY="200.0" prefHeight="25.0" prefWidth="198.0" fx:id="inputUser" />
             <Label layoutX="221.0" layoutY="176.0" prefHeight="18.0" prefWidth="32.0" style="-fx-text-fill: white;" text="User">
                <font>
                   <Font name="Lucida Bright" size="14.0" />
@@ -60,7 +60,7 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <PasswordField layoutX="221.0" layoutY="266.0" prefHeight="25.0" prefWidth="198.0" />
+            <PasswordField layoutX="221.0" layoutY="266.0" prefHeight="25.0" prefWidth="198.0" fx:id="inputSenha" />
             <Button layoutX="252.0" layoutY="321.0" mnemonicParsing="false"  prefHeight="35.0" prefWidth="136.0" style="-fx-background-color: rgba(10,23,55,.4); -fx-text-fill: white;" text="Login" onAction="#fazerLogin" />
          </children>
     </AnchorPane>

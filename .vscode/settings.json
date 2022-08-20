@@ -4,5 +4,16 @@
     "java.project.referencedLibraries": [
         "lib/**/*.jar"
     ],
-    "git.autofetch": true
+    "git.autofetch": true,
+    "cSpell.words": [
+        "codigo",
+        "Codigo",
+        "descricao",
+        "Descricao",
+        "Initializable",
+        "Listprodutos",
+        "Qtde",
+        "Relatorio",
+        "visao"
+    ]
 }
