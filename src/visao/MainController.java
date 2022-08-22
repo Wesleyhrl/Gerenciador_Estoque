@@ -1,5 +1,6 @@
 package visao;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +17,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import modelo.ListaProduto;
 import modelo.Produto;
 
@@ -39,32 +41,35 @@ public class MainController implements Initializable {
     @FXML
     private Button btnSair;
     @FXML
-    private static TableView<Produto> tab = new TableView<>();
+    private TableView<Produto> tabProdutos = new TableView<>();
 
     @FXML
-    private TableColumn<Produto, String> colCodigo = new TableColumn<>();
+    private TableColumn<Produto, String> colCodigo;
 
     @FXML
-    private TableColumn<Produto, String> colData = new TableColumn<>();
+    private TableColumn<Produto, String> colData;
 
     @FXML
-    private TableColumn<Produto, String> colDescricao = new TableColumn<>();
+    private TableColumn<Produto, String> colDescricao;
 
     @FXML
-    private TableColumn<Produto, String> colGrupo = new TableColumn<>();
+    private TableColumn<Produto, String> colGrupo;
 
     @FXML
-    private TableColumn<Produto, String> colNome = new TableColumn<>();
+    private TableColumn<Produto, String> colNome;
 
     @FXML
-    private TableColumn<Produto, Integer> colQtde = new TableColumn<>();
+    private TableColumn<Produto, Integer> colQtde;
 
     @FXML
-    private TableColumn<Produto, Double> colValor = new TableColumn<>();
+    private TableColumn<Produto, Double> colValor;
 
     @FXML
     private TextField txtBusca;
 
+    private static ObservableList<Produto> obsListprodutos = FXCollections.observableArrayList();
+
+    static Produto produtoSelect; 
 
     @FXML
     void actionBusca(ActionEvent event) {
@@ -73,7 +78,8 @@ public class MainController implements Initializable {
 
     @FXML
     void actionEditar(ActionEvent event) {
-        App.cenaEditProduto();
+        
+        
     }
 
     @FXML
@@ -108,7 +114,22 @@ public class MainController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        System.out.println("Inicio");
+        tabProdutos.setItems(obsListprodutos);
+        tabProdutos.setOnMouseClicked((MouseEvent click) -> {
+            if(click.getClickCount() == 2){
+                System.out.println("clico");
+                try {
+                    selectingProduto();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            
+        
+                
+            
+            
+        });
         colNome.setCellValueFactory(new PropertyValueFactory<Produto, String>("nome"));
         colCodigo.setCellValueFactory(new PropertyValueFactory<Produto, String>("codigo"));
         colQtde.setCellValueFactory(new PropertyValueFactory<Produto, Integer>("quantidade"));
@@ -116,14 +137,24 @@ public class MainController implements Initializable {
         colValor.setCellValueFactory(new PropertyValueFactory<Produto, Double>("valor"));
         colDescricao.setCellValueFactory(new PropertyValueFactory<Produto, String>("descricao"));
         colData.setCellValueFactory(new PropertyValueFactory<Produto, String>("data"));
-       
+        
+        
     }
-
+     
     static void preencherTab(List<Produto> ListaProduto) {
-        ObservableList<Produto> obsListprodutos = FXCollections.observableArrayList(ListaProduto);
-        tab.setItems(obsListprodutos);
+        obsListprodutos.clear();
+        
+        for (Produto produto : ListaProduto) {
+            obsListprodutos.addAll(produto);
+        }
 
-        System.out.println("Tabela");
     }
-
+    private void selectingProduto() throws IOException{
+        Produto p = tabProdutos.getSelectionModel().getSelectedItem();
+        if(p != null){
+            produtoSelect = p;
+            App.cenaEditProduto();
+        }
+        
+    }
 }

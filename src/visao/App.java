@@ -1,10 +1,13 @@
 package visao;
 
+import java.io.IOException;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class App extends Application {
@@ -31,9 +34,7 @@ public class App extends Application {
         Parent rootNewProduto = fxmlNewProduto.load();
         newProduto = new Scene(rootNewProduto);
         //Editar Produto
-        FXMLLoader fxmlEditProduto = new FXMLLoader(getClass().getResource("Editar.fxml"));
-        Parent rootEditProduto = fxmlEditProduto.load();
-        editProduto = new Scene(rootEditProduto);
+        
         //Main
         stage.setTitle("Easy Stock");
         stage.getIcons().add(new Image(getClass().getResourceAsStream("/icon.png")));
@@ -52,7 +53,10 @@ public class App extends Application {
         secondaryStage.setScene(newProduto);
         secondaryStage.show();
     }
-    public static void cenaEditProduto(){
+    public static void cenaEditProduto() throws IOException{
+        FXMLLoader fxmlEditProduto = new FXMLLoader(App.class.getResource("Editar.fxml"));
+        Parent rootEditProduto = fxmlEditProduto.load();
+        editProduto = new Scene(rootEditProduto);
         secondaryStage.setTitle("Editar Produto");
         secondaryStage.setScene(editProduto);
         secondaryStage.show();

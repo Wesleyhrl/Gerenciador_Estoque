@@ -9,7 +9,16 @@ public class Produto {
     private String descricao;
     private String data;
 
-    public Produto(){}
+    public Produto() {
+        this.nome = new String();
+        this.codigo = new String();
+        this.quantidade = 0;
+        this.grupo = new String();
+        this.valor = 0;
+        this.descricao = new String();
+        this.data = new String();
+    }
+
     public Produto(String nome, String codigo, int quantidade, String grupo, double valor, String descricao,
             String data) {
         this.nome = nome;
@@ -77,6 +86,4 @@ public class Produto {
         this.data = data;
     }
 
-    
-    
 }

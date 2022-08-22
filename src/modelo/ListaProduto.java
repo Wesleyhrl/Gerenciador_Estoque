@@ -24,6 +24,10 @@ public class ListaProduto {
     public List<Produto> ordenar(){
         return null;
     }
+    public void editar (Produto antigo){
+        produtos.remove(antigo);
+
+    }
     
 
     
