@@ -1,6 +1,8 @@
 package modelo;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 public class ListaProduto {
@@ -11,7 +13,7 @@ public class ListaProduto {
 
     public void gravar(Produto p){
         produtos.add(p);
-        
+        ordenar();
     }
 
     public List<Produto> getProdutos() {
@@ -21,11 +23,12 @@ public class ListaProduto {
     public Produto buscar(String nome){
         return null;
     }
-    public List<Produto> ordenar(){
-        return null;
+    public void ordenar(){
+       Collections.sort(produtos);
     }
-    public void editar (Produto antigo){
+    public void remover (Produto antigo){
         produtos.remove(antigo);
+        ordenar();
 
     }
     

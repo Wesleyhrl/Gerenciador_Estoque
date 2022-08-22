@@ -1,4 +1,4 @@
-package visao;
+package controle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -33,7 +33,7 @@ public class NewProdutoController{
     @FXML
     private TextField txtValor;
 
-    protected ListaProduto produtos = new ListaProduto();
+    static ListaProduto produtos = new ListaProduto();
 
     @FXML
     void actionNewSalvar(ActionEvent event) {

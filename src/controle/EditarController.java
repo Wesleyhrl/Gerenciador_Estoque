@@ -1,4 +1,4 @@
-package visao;
+package controle;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -9,8 +9,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import modelo.Produto;
+import visao.App;
 
-public class EditarController extends NewProdutoController implements Initializable {
+public class EditarController implements Initializable {
 
     @FXML
     private Button btnExcluir;
@@ -41,7 +42,9 @@ public class EditarController extends NewProdutoController implements Initializa
 
     @FXML
     void actionEditExcluir(ActionEvent event) {
-
+        NewProdutoController.produtos.remover(MainController.produtoSelect);
+        MainController.preencherTab(NewProdutoController.produtos.getProdutos());
+        App.closeSecondary();
     }
 
     @FXML
@@ -50,9 +53,10 @@ public class EditarController extends NewProdutoController implements Initializa
         System.out.println(txtCodigo.getText());
         Produto pNovo = new Produto(txtNome.getText(), this.txtCodigo.getText(), Integer.parseInt(txtQtde.getText()),
                 txtGrupo.getText(), Double.parseDouble(txtValor.getText()), txtDescricao.getText(), txtData.getText());
-        produtos.editar(MainController.produtoSelect);
-        produtos.gravar(pNovo);
-        MainController.preencherTab(produtos.getProdutos());
+        NewProdutoController.produtos.remover(MainController.produtoSelect);
+        NewProdutoController.produtos.gravar(pNovo);
+        MainController.preencherTab(NewProdutoController.produtos.getProdutos());
+        App.closeSecondary();
 
     }
 

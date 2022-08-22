@@ -1,4 +1,4 @@
-package visao;
+package controle;
 
 import java.io.IOException;
 import java.net.URL;
@@ -20,6 +20,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import modelo.ListaProduto;
 import modelo.Produto;
+import visao.App;
 
 public class MainController implements Initializable {
 
@@ -76,11 +77,7 @@ public class MainController implements Initializable {
 
     }
 
-    @FXML
-    void actionEditar(ActionEvent event) {
-        
-        
-    }
+    
 
     @FXML
     void actionImpExp(ActionEvent event) {
@@ -154,6 +151,7 @@ public class MainController implements Initializable {
         if(p != null){
             produtoSelect = p;
             App.cenaEditProduto();
+            
         }
         
     }

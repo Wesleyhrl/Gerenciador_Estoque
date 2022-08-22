@@ -60,6 +60,10 @@ public class App extends Application {
         secondaryStage.setTitle("Editar Produto");
         secondaryStage.setScene(editProduto);
         secondaryStage.show();
+        
+    }
+    public static void closeSecondary(){
+        secondaryStage.close();
     }
 
     public static void main(String[] args) {

@@ -1,6 +1,6 @@
 package modelo;
 
-public class Produto {
+public class Produto implements Comparable<Produto>{
     private String nome;
     private String codigo;
     private int quantidade;
@@ -85,5 +85,7 @@ public class Produto {
     public void setData(String data) {
         this.data = data;
     }
-
+    public int compareTo(Produto o) {
+		return nome.compareTo(o.getNome());
+	}
 }

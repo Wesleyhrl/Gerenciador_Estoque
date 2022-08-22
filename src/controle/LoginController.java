@@ -1,10 +1,11 @@
-package visao;
+package controle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import modelo.Login;
+import visao.App;
 
 public class LoginController {
 
