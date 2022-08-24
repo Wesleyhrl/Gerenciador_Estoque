@@ -1,6 +1,8 @@
 package modelo;
 
-public class Produto implements Comparable<Produto>{
+import java.util.zip.DataFormatException;
+
+public class Produto implements Comparable<Produto> {
     private String nome;
     private String codigo;
     private int quantidade;
@@ -20,14 +22,14 @@ public class Produto implements Comparable<Produto>{
     }
 
     public Produto(String nome, String codigo, int quantidade, String grupo, double valor, String descricao,
-            String data) {
-        this.nome = nome;
+            String data) throws DataFormatException, NumberFormatException, NullPointerException {
+        setNome(nome);
         this.codigo = codigo;
-        this.quantidade = quantidade;
+        setQuantidade(quantidade);
         this.grupo = grupo;
-        this.valor = valor;
+        setValor(valor);
         this.descricao = descricao;
-        this.data = data;
+        setData(data);
     }
 
     public String getNome() {
@@ -35,6 +37,9 @@ public class Produto implements Comparable<Produto>{
     }
 
     public void setNome(String nome) {
+        if(nome.equals(null) || nome.equals(" ") || nome.equals("")){
+            throw new NullPointerException();
+        }
         this.nome = nome;
     }
 
@@ -51,6 +56,11 @@ public class Produto implements Comparable<Produto>{
     }
 
     public void setQuantidade(int quantidade) {
+        NumberFormatException erro = new NumberFormatException();
+        
+        if(valor < 0 ){
+            throw erro;
+        }
         this.quantidade = quantidade;
     }
 
@@ -67,6 +77,11 @@ public class Produto implements Comparable<Produto>{
     }
 
     public void setValor(double valor) {
+        NumberFormatException erro = new NumberFormatException();
+        
+        if(valor < 0 ){
+            throw erro;
+        }
         this.valor = valor;
     }
 
@@ -82,10 +97,38 @@ public class Produto implements Comparable<Produto>{
         return data;
     }
 
-    public void setData(String data) {
+    public void setData(String data) throws DataFormatException {
+        if(data.equals("00/00/00")){
+            this.data = data;
+            return;
+        }
+        int totalCharacters = 0;
+        char temp;
+        for (int i = 0; i < data.length(); i++) {
+
+            temp = data.charAt(i);
+            if (temp == '/')
+                totalCharacters++;
+        }
+        if(totalCharacters < 2){
+            throw new  DataFormatException();
+        }
+        String[] split = data.split("/");
+        if(split[0].length() != 2 || split[1].length() != 2 || split[2].length() != 2){
+            throw new DataFormatException();
+        }
+        if(Integer.parseInt(split[2])  < 19 ){
+            throw new DataFormatException();
+        }if(Integer.parseInt(split[1])  > 12){
+            throw new DataFormatException();
+        }if(Integer.parseInt(split[0])  > 31){
+            throw new DataFormatException();
+        }
         this.data = data;
     }
+
     public int compareTo(Produto o) {
-		return nome.compareTo(o.getNome());
-	}
+        return nome.compareTo(o.nome);
+    }
+    
 }

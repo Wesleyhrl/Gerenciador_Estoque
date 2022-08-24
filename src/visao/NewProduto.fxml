@@ -63,7 +63,7 @@
                   <Font name="Lucida Bright" size="16.0" />
                </font>
             </Label>
-            <TextField fx:id="txtData" layoutX="387.0" layoutY="103.0" style="-fx-border-style: solid; -fx-background-color: #F0F0F0;" />
+            <TextField fx:id="txtData" layoutX="387.0" layoutY="103.0" promptText="DD/MM/AA" style="-fx-border-style: solid; -fx-background-color: #F0F0F0;" text="00/00/00" />
             <Label layoutX="387.0" layoutY="77.0" text="Data">
                <font>
                   <Font name="Lucida Bright" size="16.0" />

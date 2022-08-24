@@ -1,0 +1,19 @@
+#tabpane{
+    
+}
+.tab-pane *.tab-header-background{
+    -fx-background-color:  white;
+    
+}
+.tab .tab-label{
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    
+} 
+.tab{
+    -fx-background-color:  #00c6ff;
+    -fx-border-color: white;
+    
+    
+}
+  

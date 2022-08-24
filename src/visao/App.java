@@ -7,7 +7,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class App extends Application {
@@ -43,6 +42,9 @@ public class App extends Application {
         
         //Janela Secundaria
         secondaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/icon.png")));
+    }
+    public static void cenaLogin(){
+        stage.setScene(login);
     }
     public static void cenaMain(){
         stage.setScene(main);
