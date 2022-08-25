@@ -1,0 +1,13 @@
+#tabProdutos{
+    -fx-border-style: solid;
+    -fx-border-color:white;
+}
+
+
+.table-view .column-header{
+    -fx-background-color:  #00c6ff;
+    
+}
+.table-view .column-header .label {  
+    -fx-text-fill: #ffffff; 
+}

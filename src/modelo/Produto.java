@@ -2,6 +2,8 @@ package modelo;
 
 import java.util.zip.DataFormatException;
 
+import controle.MainController;
+
 public class Produto implements Comparable<Produto> {
     private String nome;
     private String codigo;
@@ -22,7 +24,7 @@ public class Produto implements Comparable<Produto> {
     }
 
     public Produto(String nome, String codigo, int quantidade, String grupo, double valor, String descricao,
-            String data) throws DataFormatException, NumberFormatException, NullPointerException {
+            String data) throws DataFormatException, NumberFormatException, NullPointerException, NomeRepeatException {
         setNome(nome);
         this.codigo = codigo;
         setQuantidade(quantidade);
@@ -36,7 +38,13 @@ public class Produto implements Comparable<Produto> {
         return nome;
     }
 
-    public void setNome(String nome) {
+    public void setNome(String nome) throws NomeRepeatException {
+        for (Produto p : MainController.produtos.getProdutos()) {
+            if(p.getNome().equals(nome)){
+                throw new NomeRepeatException();
+            }
+        }
+
         if(nome.equals(null) || nome.equals(" ") || nome.equals("")){
             throw new NullPointerException();
         }

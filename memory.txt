@@ -1,9 +1,16 @@
 abacate;15;90;orgânico;20.0;;22/08/22
 atum;86;20;carnes;48.0;Enlatado;13/05/23
-banana;02;50;orgânico;50.0;;23/08/22
-farinha;489;500;ingrediente;20.0;Pacote de 2kg;00/00/00
-leite;172;50;laticínios;12.0;Pendente a chegada no estoque;20/09/21
-maça;13;40;orgânico;48.0;;13/05/23
-morango;988;10;orgânico;50.0;fruta;31/12/22
-pêssego;80;150;orgânico;20.0;;22/08/22
-queijo;171;30;laticínios;12.0;Pendente a chegada no estoque;00/00/00
+açaí;140;50;orgânico;5.99;;00/00/00
+banana;2;50;orgânico;50.0;;23/08/22
+farinha;300;200;ingrediente;20.0;Pacote de 2kg;00/00/00
+file;556;50;carnes;30.0;1kg cada;25/08/22
+jabuticaba;505;80;orgânico;5.88;fruta;25/05/22
+jaca;506;80;orgânico;5.88;fruta;25/05/22
+jambo;504;80;orgânico;5.88;fruta;25/05/22
+jambolão;503;80;orgânico;5.88;fruta;25/05/22
+jamelão;502;80;orgânico;5.88;fruta;25/05/22
+jaracatiá;501;80;orgânico;5.88;fruta;25/05/22
+jatobá;500;80;orgânico;5.88;fruta;25/05/22
+jenipapo;589;80;orgânico;5.88;fruta;25/05/22
+leite ninho;444;20;ingrediente;12.45;leite em pó;25/05/22
+picanha;555;50;carnes;40.0;1kg cada;25/08/22
