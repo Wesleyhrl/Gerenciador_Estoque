@@ -210,9 +210,9 @@ public class MainController implements Initializable {
                 Notifications.create()
                         .position(Pos.CENTER)
                         .title("Easy Stock")
-                        .text("O arquivo "+ txtExp.getText()+" foi salvo no seu computador!!!")
+                        .text("O arquivo " + txtExp.getText() + " foi salvo no seu computador!!!")
                         .showInformation();
-                
+
             } catch (IOException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
@@ -223,19 +223,31 @@ public class MainController implements Initializable {
 
     @FXML
     void actionImpLer(ActionEvent event) {
-        
 
         if (!txtImp.getText().isBlank()) {
 
             try {
-                produtos.lerArq(txtImp.getText());
+                ListaProduto produtosAux = produtos;
+                produtosAux.lerArq(txtImp.getText());
+                produtos = produtosAux;
                 produtos.ordenar();
                 produtos.salvarArq("memory.txt");
                 Notifications.create()
                         .position(Pos.CENTER)
                         .title("Easy Stock")
-                        .text("O arquivo "+ txtImp.getText()+" externo foi salvo no programa!!!")
+                        .text("O arquivo " + txtImp.getText() + " externo foi salvo no programa!!!")
                         .showInformation();
+                MainController.preencherTab(produtos.getProdutos());
+                /*
+                 * produtos.lerArq(txtImp.getText());
+                 * produtos.ordenar();
+                 * produtos.salvarArq("memory.txt");
+                 * Notifications.create()
+                 * .position(Pos.CENTER)
+                 * .title("Easy Stock")
+                 * .text("O arquivo "+ txtImp.getText()+" externo foi salvo no programa!!!")
+                 * .showInformation();
+                 */
             } catch (IOException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
@@ -245,22 +257,23 @@ public class MainController implements Initializable {
                         .title("Easy Stock")
                         .text("Arquivo Incorreto.\nSelecione um arquivo nos padrões do programa.")
                         .showError();
-            }catch (NomeRepeatException e){
-                produtos.ordenar();
-                try {
-                    produtos.salvarArq("memory.txt");
-                } catch (IOException e1) {
-                    // TODO Auto-generated catch block
-                    e1.printStackTrace();
-                }
+            } catch (NomeRepeatException e) {
+                /*
+                 * produtos.ordenar();
+                 * try {
+                 * produtos.salvarArq("memory.txt");
+                 * } catch (IOException e1) {
+                 * // TODO Auto-generated catch block
+                 * e1.printStackTrace();
+                 * }
+                 */
                 Notifications.create()
                         .position(Pos.CENTER)
                         .title("Easy Stock")
-                        .text("Campo NOME não pode ser repetido.\nProdutos salvos apenas até nome não repetido")
+                        .text("Campo NOME no arquivo não pode ser repetido.\nArquivo não importado!!!")
                         .showError();
             }
 
-            MainController.preencherTab(produtos.getProdutos());
         }
     }
 
@@ -285,6 +298,7 @@ public class MainController implements Initializable {
         if (file != null)
             txtImp.setText(file.getAbsolutePath());
     }
+
     @FXML
     void actionHelp(ActionEvent event) throws IOException {
         App.cenaHelpImp();
@@ -298,7 +312,7 @@ public class MainController implements Initializable {
         } catch (IOException | DataFormatException e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
-        }catch (NomeRepeatException e){
+        } catch (NomeRepeatException e) {
             Notifications.create()
                     .position(Pos.CENTER)
                     .title("Easy Stock")
